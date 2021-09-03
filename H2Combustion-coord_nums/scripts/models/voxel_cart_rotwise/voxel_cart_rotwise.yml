@@ -1,0 +1,70 @@
+general:
+  me: voxel_cart_rotwise.yml
+  device: cuda:0
+  driver: voxel_cart_rotwise.py
+  output: [local/temp , 1] # root, iter
+
+data:
+  root: /home/moji/hdd/moji/data/h2reaction/all #AIMD/04/combined
+  irc: /home/moji/hdd/moji/data/h2reaction/IRC/04_H2O+O_2OH.t
+  reaction: [1,2,3] #[1,2,3,4,8,9,10,11,13,14,15,16,17,18,19]
+  normal_mode: True
+  size_nmode_max: 4000     # will be applied to both single and multiple reaction job
+  cutoff: 5.0
+  trsize_perrxn_max: 5000     # won't be applied to a single reaction job
+  test_size: 1000
+  val_size: 1000
+  oversmpl: False
+  oversmpl_l: ['ts']
+  oversmpl_n: [1]
+  random_states: 90
+
+model:
+#  pre_trained: ../voxel_cart/local/rxn1/wnm_Ei_2res/models/best_model_state.tar
+  pre_trained: ../voxel_cart/local/rxn1-3/Rx7000data/models/best_model_state.tar
+  mode: channelize
+  activation: ssp
+  requires_dr: True
+  grad_total_energy: True
+  w_energy: 1.0
+  w_force: 1.0
+  w_rotreg: 100.0
+  w_f_mag: 0.0
+  w_f_dir: 0.0
+  atom_types: [1,8]
+  grid_length: [10.0]
+  grid_size: 30
+  n_filter: 128
+  trainable_sigma: False
+  dropout: False
+  normalize_atomic: True
+  architecture: 1
+  out_channels: 4
+
+training:
+  epochs: 500
+  tr_batch_size: 10
+  val_batch_size: 10
+  tr_rotations: 4
+  val_rotations: 4
+  tr_frz_rot: False
+  val_frz_rot: False
+  tr_keep_original: False
+  val_keep_original: True
+  shuffle: True
+  drop_last: True
+  lr: 0.0005
+#  lr_scheduler: [plateau, 5, 5, 0.7, 1.0e-6]
+  lr_scheduler: [decay, 0.05]
+  weight_decay: 0.0 #3.0e-5
+  dropout: 0.0
+
+checkpoint:
+  log: 1
+  val: 1
+  model: 100
+  verbose: False
+
+
+
+

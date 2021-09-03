@@ -1,0 +1,62 @@
+general:
+  me: schnet/schnet.yml
+  device: cuda:0
+  driver: schnet.py
+  output: [schnet/local , 1] # root, iter
+
+data:
+  root: /home/moji/hdd/moji/data/h2reaction/AIMD/04/combined
+  irc: /home/moji/hdd/moji/data/h2reaction/IRC/04_H2O+O_2OH.t
+  reaction: 4
+  normal_mode: False
+  cutoff: 5.0
+  test_size: 1000
+  val_size: 1000
+  oversmpl: True
+  oversmpl_l: ['ts']
+  oversmpl_n: [1]
+  random_states: 90
+
+model:
+  mode: channelize
+  activation: ssp
+  requires_dr: True
+  negative_dr: True
+  w_energy: 1.0
+  w_force: 1.0
+  w_f_mag: 0.0
+  w_f_dir: 0.0
+  n_features: 64
+  n_gaussians: 50
+  n_interactions: 5
+  cutoff_network: cosine
+  trainable_sigma: False
+  dropout: False
+
+training:
+  epochs: 500
+  tr_batch_size: 64
+  val_batch_size: 64
+  tr_rotations: 4
+  val_rotations: 4
+  tr_frz_rot: False
+  val_frz_rot: False
+  tr_keep_original: False
+  val_keep_original: True
+  shuffle: True
+  drop_last: True
+  lr: 0.0005
+  lr_scheduler: [plateau, 5, 5, 0.7, 1.0e-6]
+#  lr_scheduler: [decay, 0.05]
+  weight_decay: 0.0 #3.0e-5
+  dropout: 0.0
+
+checkpoint:
+  log: 1
+  val: 1
+  model: 100
+  verbose: True
+
+
+
+
