@@ -69,6 +69,11 @@ data = np.load('rxns_irc.npz')
    ```bash
    ./scripts/script_combust.py plot_cn rxns_data_irc.npz -r 11
    ```
+   Or for plotting combined data from IRC, AIMD and Normal mode
+   
+   ```bash
+   ./scripts/script_combust.py plot_cn rxns_data_irc.npz -a rxns_data_aimd.npz -d rxns_data_nm.npz -r 11
+   ```
 
    **Note:** The `rxn_dict` in `utils/rxn_data.py` containing all reactions information is not
    complete yet, so running this for some of the reactions might fail, at this points.
