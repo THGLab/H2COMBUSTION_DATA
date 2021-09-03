@@ -1,38 +1,3 @@
-Machine Learning of Hydrogen Combustion Reaction.
-
-## Installation and Dependencies
-The developer installation is available and for that you need to first clone H2Combustion from this repository:
-
-    git clone https://github.com/THGLab/H2Combustion.git
-
-and then run the following command inside the repository:
-
-    pip install -e .
-
-
-We recommend using conda environment to install dependencies of this library.
-Please install (or load) conda and then proceed with the following commands:
-
-    conda create --name torch-gpu python=3.7
-    conda activate torch-gpu
-    conda install -c conda-forge numpy scipy pandas ase pyyaml
-    conda install -c pytorch pytorch torchvision cudatoolkit=10.1 
-
-Now, you can run combust modules anywhere on your computer as long as you are in the `torch-gpu` environment.
-Please note that this is a developer version, and thus you should reinstall the library whenever you pull new changes. 
-Otherwise, you always use the previously installed version of this library.
-
-
-## Guidelines
-- You can find several models inside the scripts directory that rely on the implemented modules in the combust library. 
-Please modify parameters using the yaml files.
-
-- Please push your changes to a new branch and avoid merging with the master branch unless
-your work is reviewed by at least one other contributor.
-
-- The documentation of the modules are available at most cases. Please look up local classes or functions
-and consult with the docstrings in the code.
-
 
 ## Data Format
 This is an example for loading and combining IRC data and storing them in a single npz file format.
