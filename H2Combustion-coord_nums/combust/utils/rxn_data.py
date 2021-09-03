@@ -46,48 +46,48 @@ rxn_dict = {
     },
     'rxn05': {
         'title': r'RXN05: H$_2$$ \rightarrow$ 2H (singlet)',
-        'xtitle': 'CN2',
-        'ytitle': 'CN1',
+        'xtitle': 'CN2 [H1-H2]',
+        'ytitle': 'CN1 [H1-H2]',
         'cn1': ['H1_H2'],
         'cn2': ['H1_H2'],
         'natoms': 2,
-        'mu': [0.0,0.74],   # mu for plotting CN1 & CN2
+        'mu': [0.74,0.74],   # mu for plotting CN1 & CN2
         'folder': '05_H2_2H.s',
     },
     'rxn06a': {
         'title': r'RXN06: O$_2$$ \rightarrow$ 2O (singlet)',
-        'xtitle': 'CN2',
-        'ytitle': 'CN1',
-        'cn1': [],
-        'cn2': [],
+        'xtitle': 'CN2 [O1-O2]',
+        'ytitle': 'CN1 [O1-O2]',
+        'cn1': ['O1_O2'],
+        'cn2': ['O1_O2'],
         'natoms': 2,
-        'mu': [],   # mu for plotting CN1 & CN2
+        'mu': [1.21,1.21],   # mu for plotting CN1 & CN2
         'folder': '06_O2_2O.s',
     },
     'rxn06b': {
         'title': r'RXN06: O$_2$$ \rightarrow$ 2O (triplet)',
-        'xtitle': 'CN2',
-        'ytitle': 'CN1',
-        'cn1': [],
-        'cn2': [],
+        'xtitle': 'CN2 [O1-O2]',
+        'ytitle': 'CN1 [O1-O2]',
+        'cn1': ['O1_O2'],
+        'cn2': ['O1_O2'],
         'natoms': 2,
-        'mu': [],   # mu for plotting CN1 & CN2
+        'mu': [1.21,1.21],   # mu for plotting CN1 & CN2
         'folder': '06_O2_2O.t',
     },
     'rxn07': {
         'title': r'RXN07: OH$ \rightarrow$ O + H (doublet)',
-        'xtitle': 'CN2',
-        'ytitle': 'CN1',
-        'cn1': [],
-        'cn2': [],
+        'xtitle': 'CN2 [O1-H1]',
+        'ytitle': 'CN1 [O1-H1]',
+        'cn1': ['O1_H1'],
+        'cn2': ['O1_H1'],
         'natoms': 2,
-        'mu': [],   # mu for plotting CN1 & CN2
+        'mu': [0.96,0.96],   # mu for plotting CN1 & CN2
         'folder': '07_OH_O+H.d',
     },
     'rxn08': {
         'title': r'RXN08: H + OH$ \rightarrow$ H$_2$O (singlet)',
-        'xtitle': 'CN2',
-        'ytitle': 'CN1',
+        'xtitle': 'CN2 [O1-H2]',
+        'ytitle': 'CN1 [O1-(H1,H2)]',
         'cn1': ['O1_H2','O1_H1'],
         'cn2': ['O1_H2'],
         'natoms': 3,
@@ -96,8 +96,8 @@ rxn_dict = {
     },
     'rxn09': {
         'title': r'RXN09: HO$_2 \rightarrow$ H + O$_2$ (doublet)',
-        'xtitle': 'CN2',
-        'ytitle': 'CN1',
+        'xtitle': 'CN2 [O1-H1]',
+        'ytitle': 'CN1 [O2-H1]',
         'cn1': ['O1_H1'],
         'cn2': ['O2_H1'],
         'natoms': 3,
@@ -127,8 +127,8 @@ rxn_dict = {
     'rxn12a': {
         'title': r'RXN12: HO$_2$ + O$ \rightarrow$ OH + O$_2$ (doublet)',
         'xtitle': 'CN2 [H1-O3]',
-        'ytitle': 'CN1 [H1-O1]',
-        'cn1': ['O1_H1'],
+        'ytitle': 'CN1 [H1-(O1,O2)]',
+        'cn1': ['O1_H1','O2_H1'],
         'cn2': ['H1_O3'],
         'natoms': 4,
         'mu': [0.96,0.96],   # mu for plotting CN1 & CN2
@@ -137,12 +137,22 @@ rxn_dict = {
     'rxn12b': {
         'title': r'RXN12: HO$_2$ + O$ \rightarrow$ OH + O$_2$ (quartet)',
         'xtitle': 'CN2 [H1-O3]',
-        'ytitle': 'CN1 [H1-O1]',
-        'cn1': ['O2_H1'],
+        'ytitle': 'CN1 [H1-(O1,O2)]',
+        'cn1': ['O1_H1','O2_H1'],
         'cn2': ['H1_O3'],
         'natoms': 4,
         'mu': [0.96,0.96],   # mu for plotting CN1 & CN2
         'folder': '12_HO2+O_OH+O2.q',
+    },
+    'rxn12': {
+        'title': r'RXN12: HO$_2$ + O$ \rightarrow$ OH + O$_2$',
+        'xtitle': 'CN2 [H1-O3]',
+        'ytitle': 'CN1 [H1-(O1,O2)]',
+        'cn1': ['O1_H1','O2_H1'],
+        'cn2': ['H1_O3'],
+        'natoms': 4,
+        'mu': [0.96,0.96],   # mu for plotting CN1 & CN2
+        'folder': '12_HO2+O_OH+O2.d',
     },
     'rxn13': {
         'title': r'RXN13: H$_2$O + O$_2 \rightarrow$ HO$_2$ + OH (triplet)',
